@@ -41,7 +41,6 @@ interface TAudio {
         src: string; // https://aod.cos.tx.xmcdn.com/group78/M08/D1/81/wKgO4F526g_Sv9RuAFUELgybFPs755.m4a
     }
 }
-const COOKIE = `_xmLog=h5&3fcf5fd5-85c1-47af-bf88-aca95dbf062c&process.env.sdkVersion; xm-page-viewid=ximalaya-web; Hm_lvt_4a7d8ec50cfd6af753c4f8aee3425070=1681873705; trackType=web; 1&remember_me=y; 1&_token=91891260&E2F36A50240N4B1FA5C78B50F10BE0359ACAB34A9CD699DBEF6E7CEDFCDB5ACA61B29612BFF3133MB8C23612D1D3155_; 1_l_flag=91891260&E2F36A50240N4B1FA5C78B50F10BE0359ACAB34A9CD699DBEF6E7CEDFCDB5ACA61B29612BFF3133MB8C23612D1D3155__2023-04-1911:10:45; impl=www.ximalaya.com.login; x_xmly_traffic=utm_source%3A%26utm_medium%3A%26utm_campaign%3A%26utm_content%3A%26utm_term%3A%26utm_from%3A; Hm_lpvt_4a7d8ec50cfd6af753c4f8aee3425070=1681873900; web_login=1681873909195`;
 const AlbumConfig: iAlbumConfig = {
     id: "35645970",
     pageNum: 1,
@@ -112,7 +111,7 @@ async function downloadFile() {
             console.log('read file error');
         } else {
             let jsonData = JSON.parse(data.toString());
-            for (let item of jsonData.AlbumList.slice(10)) {
+            for (let item of jsonData.AlbumList) {
                 let fileName = `./m4a/${item.title.replace(/ /g, '')}.m4a`;
                 try {
                     let binaryData = await download(item.src);
