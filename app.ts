@@ -102,7 +102,6 @@ async function getAblums() {
 }
 
 
-// getAblums();
 
 
 async function downloadFile() {
@@ -126,6 +125,9 @@ async function downloadFile() {
 
 }
 
+
+
+// getAblums();
 downloadFile();
 
 
